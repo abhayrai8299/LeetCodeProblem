@@ -11,4 +11,4 @@ while(k>0){
     --k;
 }
 
-console.log(num);
+console.log(num); //[5,6,7,1,2,3,4]
