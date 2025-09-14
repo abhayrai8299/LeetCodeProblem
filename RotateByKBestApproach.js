@@ -1,15 +1,26 @@
-let num=[1,2,3,4,5,6,7];
-let k=3;
-let nlen=num.length;
-let j=0;
-for(let i=nlen-1;i>=0;--i)
-{
-
-        if(j<k)
-        {
-                num[i]=num[i-1];
+function rotate(nums, k) {
+        let n = nums.length;
+        k = k % n;  // in case k > n
+    
+        // helper to reverse array in place
+        function reverse(start, end) {
+            while (start < end) {
+                [nums[start], nums[end]] = [nums[end], nums[start]];
+                start++;
+                end--;
+            }
         }
-        num[0]=num[]
-}
-
-console.log(num); //[5,6,7,1,2,3,4]
+    
+        // Step 1: reverse whole array
+        reverse(0, n - 1);
+        // Step 2: reverse first k elements
+        reverse(0, k - 1);
+        // Step 3: reverse rest
+        reverse(k, n - 1);
+    }
+    
+    // Example
+    let nums = [1,2,3,4,5,6,7];
+    rotate(nums, 3);
+    console.log(nums); // [5,6,7,1,2,3,4]
+    
